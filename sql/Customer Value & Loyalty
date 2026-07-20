@@ -1,0 +1,123 @@
+/* ============================================================
+   CUSTOMER VALUE & LOYALTY ANALYSIS
+   ============================================================ */
+
+-- ============================================================
+-- Question 1: Which customers have made the highest number of purchases?
+-- ============================================================
+
+SELECT
+    COUNT(customer_id) AS no_of_customers,
+    previous_purchases
+FROM customer_data
+GROUP BY previous_purchases
+ORDER BY previous_purchases DESC;
+
+-- Insight:
+-- • The maximum number of previous purchases recorded is 50.
+-- • A total of 77 customers have made 50 previous purchases.
+
+
+-- ============================================================
+-- Question 2: What is the average purchase amount of
+-- high-repeat customers versus low-repeat customers?
+-- ============================================================
+
+WITH repeat_customers AS (
+    SELECT
+        purchase_amount_usd,
+        CASE
+            WHEN previous_purchases >
+                 (SELECT AVG(previous_purchases)
+                  FROM customer_data)
+            THEN 'High Repeat'
+            ELSE 'Low Repeat'
+        END AS repeat_category
+    FROM customer_data
+)
+
+SELECT
+    repeat_category,
+    ROUND(AVG(purchase_amount_usd), 2) AS avg_purchase_amount
+FROM repeat_customers
+GROUP BY repeat_category
+ORDER BY repeat_category;
+
+-- Insight:
+-- • High-repeat customers spend an average of $59.93 per purchase.
+-- • Low-repeat customers spend an average of $59.60 per purchase.
+-- • Spending per transaction is almost identical for both groups.
+
+
+-- ============================================================
+-- Question 3: Which customer segments (Age & Gender)
+-- have the highest previous purchase counts?
+-- ============================================================
+
+-- Age-wise Analysis
+
+SELECT
+    age_group,
+    ROUND(AVG(previous_purchases), 2) AS avg_previous_purchases
+FROM customer_data
+GROUP BY age_group
+ORDER BY avg_previous_purchases DESC;
+
+-- Insight:
+-- • Mature customers have the highest average previous purchases (25.69), indicating the strongest repeat purchasing behavior.
+-- • Adult customers follow with an average of 25.04 previous purchases.
+-- • Young Adult customers have the lowest average previous purchases (24.63).
+-- • Although the differences are small, customer loyalty appears to increase slightly with age.
+
+-- Gender-wise Analysis
+
+SELECT
+    gender,
+    ROUND(AVG(previous_purchases), 2) AS avg_previous_purchases
+FROM customer_data
+GROUP BY gender
+ORDER BY avg_previous_purchases DESC;
+
+-- Insight:
+-- • Male customers average 25.71 previous purchases.
+-- • Female customers average 24.60 previous purchases.
+
+
+-- ============================================================
+-- Question 4: Do subscribed customers make more repeat purchases
+-- than non-subscribed customers?
+-- ============================================================
+
+SELECT
+    subscription_status,
+    ROUND(AVG(previous_purchases), 2) AS avg_previous_purchases
+FROM customer_data
+GROUP BY subscription_status
+ORDER BY avg_previous_purchases DESC;
+
+-- Insight:
+-- • Subscribed customers average 26.08 previous purchases.
+-- • Non-subscribed customers average 25.08 previous purchases.
+-- • Subscribers show slightly higher repeat purchasing behavior.
+
+
+-- ============================================================
+-- Question 5: Which demographic groups contribute the
+-- largest share of revenue?
+-- ============================================================
+
+SELECT
+    age_group,
+    gender,
+    ROUND(SUM(purchase_amount_usd),2) AS total_revenue
+FROM customer_data
+GROUP BY
+    age_group,
+    gender
+ORDER BY total_revenue DESC;
+
+-- Insight:
+-- • Mature male customers contribute the highest share of revenue (38%).
+-- • Mature female and Adult male customers each contribute 18% of revenue.
+-- • Young Adult female customers contribute the least (4%).
+-- • Mature customers are the most valuable demographic segment.
