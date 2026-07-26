@@ -107,8 +107,10 @@ The project concludes with a strategic playbook containing:
 - Ideal Customer Profile (ICP)
 - Promotional Sunset Plan
 
-<img width="480" height="680" alt="image" src="https://github.com/user-attachments/assets/77b188e5-e2cf-45d1-afac-3e411f853fbb" />
-<img width="481" height="690" alt="image" src="https://github.com/user-attachments/assets/c2dc6db1-8e3d-4ebb-b269-bd802722132f" />
+<img width="480" height="678" alt="image" src="https://github.com/user-attachments/assets/1abd3a67-28da-4099-be98-002beac99343" />
+
+<img width="480" height="688" alt="image" src="https://github.com/user-attachments/assets/1d8df4b9-c6bd-44c8-808d-5624db3a3a86" />
+
 
 
 ## Future Improvements
