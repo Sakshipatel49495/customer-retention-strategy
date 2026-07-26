@@ -109,7 +109,8 @@ The project concludes with a strategic playbook containing:
 
 <img width="480" height="678" alt="image" src="https://github.com/user-attachments/assets/1abd3a67-28da-4099-be98-002beac99343" />
 
-<img width="480" height="688" alt="image" src="https://github.com/user-attachments/assets/1d8df4b9-c6bd-44c8-808d-5624db3a3a86" />
+<img width="478" height="681" alt="image" src="https://github.com/user-attachments/assets/59d2b856-16e6-4492-b4a1-4dc89fabd62e" />
+
 
 
 
