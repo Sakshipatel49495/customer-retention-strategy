@@ -49,16 +49,6 @@ Key concerns include:
 
 ---
 
-## Planned Engineered Features
-- dependency_score
-- value_tier
-- satisfaction_flag
-- loyalty_segment
-- promo_sensitivity
-- retention_risk
-
----
-
 ## Repository Structure
 
 ```plaintext
@@ -69,7 +59,71 @@ powerbi/        -> Power BI dashboard
 report/         -> executive summary & insights
 ```
 
+---
+
+## Project Workflow
+
+```text
+Raw Dataset
+      │
+      ▼
+Data Cleaning
+      │
+      ▼
+Feature Engineering
+      │
+      ▼
+SQL Business Analysis
+      │
+      ▼
+Power BI Dashboard
+      │
+      ▼
+Business Playbook
+```
+
+---
+
+## Project Components
+
+### Python
+- Cleaned and prepared the raw dataset for analysis.
+- Performed feature engineering to create business-focused customer segments.
+- Each engineered feature includes its definition and rationale within the notebook comments.
+
+### SQL
+- Solved business-driven analytical questions using SQL.
+- Each query includes commented insights explaining the business findings.
+
+### Power BI
+- Built an interactive dashboard to visualize customer behavior, promotional dependency, revenue distribution, and retention opportunities.
+
+## Dashboard Preview
+
+<img width="1121" height="627" alt="image" src="https://github.com/user-attachments/assets/4ef5b05c-48ef-425c-95a3-4c703aed2994" />
+
+### Business Playbook
+The project concludes with a strategic playbook containing:
+- Ideal Customer Profile (ICP)
+- Promotional Sunset Plan
+
+<img width="480" height="680" alt="image" src="https://github.com/user-attachments/assets/77b188e5-e2cf-45d1-afac-3e411f853fbb" />
+<img width="481" height="690" alt="image" src="https://github.com/user-attachments/assets/c2dc6db1-8e3d-4ebb-b269-bd802722132f" />
 
 
+## Future Improvements
 
+- Build a Customer Lifetime Value (CLV) model.
+- Add churn prediction using machine learning.
+- Automate dashboard refresh with a live data source.
+- Track customer retention over time.
+
+---
+
+## Contact
+
+**Sakshi Patel**
+
+- LinkedIn: *www.linkedin.com/in/sakshi-patel-252605358*
+- Email: *sakshipatel49495@gmail.com*
 
